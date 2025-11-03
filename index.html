@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sweepify — Telegram Group Guardian</title>
+  <meta name="description" content="Sweepify keeps Telegram groups clean by auto-deleting abusive messages, optionally blocking promotional spam, and tidying join/left messages." />
+  <meta name="theme-color" content="#0160BF" />
+
+  <style>
+    :root{
+      --brand:#0160BF;
+      --brand2:#0ea5e9;
+      --bg:#0b1220;
+      --surface:#0e1528;
+      --text:#e7eef8;
+      --muted:#9fb2c7;
+      --border:rgba(255,255,255,.09);
+      --radius:16px;
+      --shadow:0 10px 32px rgba(0,0,0,.35);
+      --shadow-sm:0 6px 18px rgba(0,0,0,.25);
+      --grad:radial-gradient(900px 600px at 8% 10%, rgba(1,96,191,.25), transparent 60%),
+             radial-gradient(900px 600px at 88% 30%, rgba(14,165,233,.18), transparent 60%),
+             linear-gradient(180deg, #0b1220, #0b1220);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif;
+      background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1120px; margin:0 auto; padding:0 20px}
+
+    /* NAV */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
+      background:color-mix(in oklab, var(--surface) 82%, transparent); border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:70px; gap:12px}
+    .brand{display:flex; align-items:center; gap:.8rem}
+    .logo{width:40px; height:40px; border-radius:12px; background:linear-gradient(135deg,var(--brand),var(--brand2)); box-shadow:var(--shadow-sm)}
+    .brand-txt{display:flex; flex-direction:column; line-height:1.05}
+    .brand-title{font-weight:800; letter-spacing:.2px}
+    .brand-sub{font-size:.8rem; color:var(--muted)}
+    .links{display:flex; align-items:center; gap:.5rem}
+    .links a{padding:.6rem .8rem; border-radius:10px; color:var(--muted)}
+    .links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .btn{display:inline-flex; align-items:center; gap:.55rem; padding:.85rem 1.05rem; border-radius:12px; font-weight:700;
+      background:linear-gradient(135deg,var(--brand),var(--brand2)); color:#fff; border:1px solid rgba(255,255,255,.08); box-shadow:var(--shadow-sm); transition:.18s transform ease, .2s box-shadow ease}
+    .btn:hover{transform:translateY(-2px); box-shadow:var(--shadow)}
+    .btn.secondary{background:transparent; color:var(--text); border:1px solid var(--border)}
+    .toggle{display:none; width:40px; height:40px; border:1px solid var(--border); border-radius:10px; background:transparent; position:relative; cursor:pointer}
+    .toggle span{position:absolute; left:9px; right:9px; height:2px; background:currentColor; border-radius:2px; transition:.2s}
+    .toggle span:nth-child(1){top:12px} .toggle span:nth-child(2){top:19px} .toggle span:nth-child(3){top:26px}
+    .toggle[aria-expanded="true"] span:nth-child(1){top:19px; transform:rotate(45deg)}
+    .toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .toggle[aria-expanded="true"] span:nth-child(3){top:19px; transform:rotate(-45deg)}
+    @media(max-width:900px){
+      .toggle{display:block}
+      .links{position:absolute; top:70px; left:0; right:0; display:grid; gap:6px; padding:14px 18px;
+        background:color-mix(in oklab, var(--surface) 94%, transparent); border-bottom:1px solid var(--border);
+        transform:translateY(-12px); opacity:0; pointer-events:none; transition:transform .2s, opacity .2s}
+      .links.open{transform:translateY(0); opacity:1; pointer-events:auto}
+      .links a{padding:1rem; border-radius:12px}
+      .links .btn{width:100%; justify-content:center}
+    }
+
+    /* HERO */
+    .hero{background:var(--grad); border-bottom:1px solid var(--border); padding:80px 0 56px}
+    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+    .hero h1{font-size:2.6rem; line-height:1.08; margin:0 0 .6rem}
+    .hero p{color:var(--muted); font-size:1.08rem; margin:0 0 1.1rem}
+    .hero .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .panel{
+      min-height:320px; border-radius:16px; border:1px solid var(--border); background:
+      radial-gradient(260px 240px at 70% 20%, rgba(14,165,233,.28), transparent 60%),
+      radial-gradient(260px 240px at 25% 80%, rgba(1,96,191,.28), transparent 60%),
+      linear-gradient(180deg, #0d152a, #0d152a);
+      display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1.8rem; letter-spacing:.4px; box-shadow:var(--shadow-sm)
+    }
+    @media(max-width:960px){ .hero-grid{grid-template-columns:1fr} .hero h1{font-size:2.2rem} }
+
+    /* SECTION */
+    section{padding:56px 0; border-bottom:1px solid var(--border)}
+    .head{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px}
+    .muted{color:var(--muted)}
+    .grid{display:grid; gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media(max-width:960px){.grid.cols-3{grid-template-columns:1fr 1fr}}
+    @media(max-width:720px){.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}}
+
+    .card{background:var(--surface); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow-sm); padding:16px}
+    .pill{display:inline-flex; align-items:center; gap:.45rem; padding:.35rem .65rem; border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.04); color:var(--muted); font-size:.86rem}
+    .kbd{font-family:ui-monospace,Menlo,Consolas,monospace; background:#0b1020; border:1px solid #1f2a44; border-radius:8px; padding:.18rem .45rem}
+
+    /* FOOTER */
+    footer{padding:28px 0; color:var(--muted); text-align:center}
+    footer a{color:#b9d9ff; text-decoration:underline}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="Sweepify home">
+        <div class="logo" aria-hidden="true"></div>
+        <div class="brand-txt">
+          <span class="brand-title">Sweepify</span>
+          <span class="brand-sub">Telegram Group Guardian</span>
+        </div>
+      </a>
+
+      <button class="toggle" aria-expanded="false" aria-controls="navmenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div id="navmenu" class="links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#commands">Commands</a>
+        <a class="btn" href="https://t.me/SweepifyBot?startgroup=true" target="_blank" rel="noopener">➕ Add to Group</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <h1>Keep your Telegram group clean &amp; safe 🛡️</h1>
+        <p>Sweepify automatically removes abusive or harmful messages. You can optionally enable promotional spam deletion. It also tidies join/left messages and skips linked-channel forwards.</p>
+        <div class="cta">
+          <a class="btn" href="https://t.me/SweepifyBot?startgroup=true" target="_blank" rel="noopener">➕ Add to Group</a>
+          <a class="btn secondary" href="https://t.me/PhoneInfoFamily" target="_blank" rel="noopener">🌐 Community</a>
+        </div>
+      </div>
+      <div class="panel"><img src="https://raw.githubusercontent.com/AmitDas4321/Sweepify/main/assets/Sweepify%20Banner.gif" alt="Sweepify Banner"></div>
+    </div>
+  </header>
+
+  <!-- FEATURES (only what exists) -->
+  <section id="features">
+    <div class="container">
+      <div class="head">
+        <h2>Features</h2>
+        <span class="pill">Requires: <span class="kbd">Delete messages</span> + <span class="kbd">Restrict members</span></span>
+      </div>
+
+      <div class="grid cols-3">
+        <div class="card">
+          <div class="pill">🧼 Abuse filter</div>
+          <h3 style="margin:.4rem 0 .3rem">Abusive/hate/profanity deletion</h3>
+          <p class="muted">Automatically deletes messages containing profanity, hate speech, or abusive language.</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">🧲 Optional</div>
+          <h3 style="margin:.4rem 0 .3rem">Promotional spam toggle</h3>
+          <p class="muted">You decide if promotions/ads should be deleted. Leave it off for open discussions.</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">👋 Noise cleanup</div>
+          <h3 style="margin:.4rem 0 .3rem">Join/left message removal</h3>
+          <p class="muted">Silently removes the default “joined” and “left” notices to keep chats readable.</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">🔗 Linked channel aware</div>
+          <h3 style="margin:.4rem 0 .3rem">Skip channel forwards</h3>
+          <p class="muted">Ignores automatic forwards and messages from a linked channel.</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">🛡️ Role respect</div>
+          <h3 style="margin:.4rem 0 .3rem">Admins are never auto-deleted</h3>
+          <p class="muted">Creator/Administrators are not moderated by the bot.</p>
+        </div>
+
+        <div class="card">
+          <div class="pill">⚙️ Setup helper</div>
+          <h3 style="margin:.4rem 0 .3rem">One-time permission reminder</h3>
+          <p class="muted">If required rights are missing, Sweepify posts a one-time checklist message.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="container">
+      <div class="head">
+        <h2>How it works</h2>
+        <span class="pill">Takes ~30 seconds</span>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>1) Add &amp; make admin</h3>
+          <p class="muted">Add <a href="https://t.me/SweepifyBot?startgroup=true" target="_blank" rel="noopener">@SweepifyBot</a> to your group and grant <span class="kbd">Delete messages</span> and <span class="kbd">Restrict members</span>.</p>
+        </div>
+        <div class="card">
+          <h3>2) Type <span class="kbd">/start</span></h3>
+          <p class="muted">Send once in the group. Sweepify confirms “Guardian active” and moderates quietly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMANDS (only what exists) -->
+  <section id="commands">
+    <div class="container">
+      <div class="head">
+        <h2>Commands</h2>
+        <span class="pill">Simple by design</span>
+      </div>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>/start</h3>
+          <p class="muted">Shows a short confirmation and enables protection in the group.</p>
+        </div>
+        <div class="card">
+          <h3 class="muted">No extra commands</h3>
+          <p class="muted">All moderation runs automatically in the background.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section>
+    <div class="container">
+      <div class="card" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px">
+        <div>
+          <div class="muted">Ready to tidy up your chats?</div>
+          <h3 style="margin:.2rem 0 0">Add Sweepify to your Telegram group</h3>
+        </div>
+        <div>
+          <a class="btn" href="https://t.me/SweepifyBot?startgroup=true" target="_blank" rel="noopener">➕ Add to Group</a>
+          <a class="btn secondary" style="margin-left:8px" href="https://t.me/PhoneInfoFamily" target="_blank" rel="noopener">🌐 Community</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Sweepify · Community: <a href="https://t.me/PhoneInfoFamily" target="_blank" rel="noopener">@PhoneInfoFamily</a> · Support: <a href="https://t.me/PhoneInfo_Helpbot" target="_blank" rel="noopener">@PhoneInfo_Helpbot</a>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mobile menu
+    const btn = document.querySelector('.toggle');
+    const menu = document.getElementById('navmenu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        menu.classList.toggle('open', !open);
+      });
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        btn.setAttribute('aria-expanded', 'false'); menu.classList.remove('open');
+      }));
+    }
+  </script>
+</body>
+</html>
