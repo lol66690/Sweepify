@@ -55,6 +55,11 @@ It automatically deletes abusive, spam, or join messages — so your community s
 
 <p align="center">
   <a href="https://t.me/SweepifyBot?startgroup=true" target="_blank">
+  <img src="assets/Sweepify Logo.gif" alt="Sweepify Logo" width="160" height="160">
+  </a>
+</p>
+<p align="center">
+  <a href="https://t.me/SweepifyBot?startgroup=true" target="_blank">
     <img src="https://img.shields.io/badge/Add_to_Telegram_Group-0088cc?style=for-the-badge&logo=telegram&logoColor=white" alt="Add to Telegram">
   </a>
 </p>
@@ -74,10 +79,6 @@ If you find Sweepify helpful, share it with your group admins or leave feedback.
 Your support helps keep the internet a cleaner place!
 
 ---
-
-<p align="center">
-  <img src="assets/Sweepify Logo.gif" alt="Sweepify Logo" width="160" height="160">
-</p>
 
 <p align="center">
   <b>Made with ❤️ by <a href="https://amitdas.site">Amit Das</a></b><br>
